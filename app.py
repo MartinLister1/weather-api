@@ -4,7 +4,11 @@ import json
 import urllib.parse
 import os
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder='static', template_folder='templates')
+
+@app.route('/')
+def home():
+    return render_template('index.html')
 
 
 # this gets the lat and long for a city so we can pass it to the weather API
@@ -70,9 +74,9 @@ def get_condition(code):
 
 
 # home page
-@app.route('/', methods=['GET'])
+@app.route('/')
 def home():
-    return jsonify({...})
+    return render_template('index.html')
 
 
 # returns the current weather for a city
