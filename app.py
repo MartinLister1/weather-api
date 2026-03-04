@@ -229,28 +229,31 @@ def search():
     url = "https://geocoding-api.open-meteo.com/v1/search?name=" + encoded + "&count=10&language=en&format=json"
 
     try:
-        with urllib.request.urlopen(url) as response:
-            data = json.loads(response.read())
+        import requests
+        response = requests.get(url, timeout=5)
+        data = response.json()
 
-            if "results" not in data:
-                return jsonify({"query": query, "results": [], "count": 0})
+        if "results" not in data:
+            return jsonify({"query": query, "results": [], "count": 0})
 
-            cities = []
-            for r in data["results"]:
-                cities.append({
-                    "city": r["name"],
-                    "country": r.get("country", "Unknown"),
-                    "region": r.get("admin1", ""),
-                    "latitude": r["latitude"],
-                    "longitude": r["longitude"]
-                })
-
-            return jsonify({
-                "query": query,
-                "count": len(cities),
-                "results": cities
+        cities = []
+        for r in data["results"]:
+            cities.append({
+                "city": r["name"],
+                "country": r.get("country", "Unknown"),
+                "region": r.get("admin1", ""),
+                "latitude": r["latitude"],
+                "longitude": r["longitude"]
             })
-    except:
+
+        return jsonify({
+            "query": query,
+            "count": len(cities),
+            "results": cities
+        })
+
+    except Exception as e:
+        print("Search error:", e)
         return jsonify({"error": "Search failed. Please try again."}), 500
 
 
