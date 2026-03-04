@@ -4,8 +4,10 @@ import json
 import urllib.parse
 import os
 
+# set up flask and tell it where the front end files are
 app = Flask(__name__, static_folder='static', template_folder='templates')
 
+# home page
 @app.route('/')
 def home():
     return render_template('index.html')
@@ -15,11 +17,14 @@ def home():
 def get_coordinates(city):
     encoded_city = urllib.parse.quote(city)
     url = "https://geocoding-api.open-meteo.com/v1/search?name=" + encoded_city + "&count=1&language=en&format=json"
+
     try:
         with urllib.request.urlopen(url) as response:
             data = json.loads(response.read())
+
             if "results" not in data or len(data["results"]) == 0:
                 return None
+
             r = data["results"][0]
             return {
                 "city": r["name"],
@@ -28,6 +33,7 @@ def get_coordinates(city):
                 "longitude": r["longitude"],
                 "timezone": r.get("timezone", "UTC")
             }
+
     except:
         return None
 
@@ -38,6 +44,7 @@ def get_weather(lat, lon, timezone="UTC"):
     url += "&current=temperature_2m,relative_humidity_2m,apparent_temperature,precipitation,wind_speed_10m,wind_direction_10m,weather_code"
     url += "&daily=temperature_2m_max,temperature_2m_min,precipitation_sum,sunrise,sunset,wind_speed_10m_max"
     url += "&timezone=" + urllib.parse.quote(timezone) + "&forecast_days=7"
+
     try:
         with urllib.request.urlopen(url) as response:
             return json.loads(response.read())
@@ -71,13 +78,6 @@ def get_condition(code):
         99: "Thunderstorm with hail"
     }
     return conditions.get(code, "Unknown")
-
-
-# home page
-@app.route('/')
-def home():
-    return render_template('index.html')
-
 
 # returns the current weather for a city
 @app.route('/api/weather')
