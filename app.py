@@ -70,9 +70,9 @@ def get_condition(code):
 
 
 # home page
-@app.route('/')
+@app.route('/', methods=['GET'])
 def home():
-    return render_template('index.html')
+    return jsonify({...})
 
 
 # returns the current weather for a city
