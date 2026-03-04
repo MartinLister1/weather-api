@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Weather App</title>
+  <link rel="stylesheet" href="/static/style.css"/>
+</head>
+<body>
+
+  <header>
+    <h1>🌤 Weather App</h1>
+    <p>Made by Martin Lister</p>
+  </header>
+
+  <main>
+
+    <section id="search">
+      <input type="text" id="city-input" placeholder="Enter a city..."/>
+      <button onclick="getWeather()">Search</button>
+    </section>
+
+    <section id="error" class="hidden">
+      <p id="error-message">City not found. Please try again.</p>
+    </section>
+
+    <section id="weather-results" class="hidden">
+
+      <article id="weather-card">
+        <h2 id="city-name"></h2>
+        <p id="country-name"></p>
+        <strong id="temperature"></strong>
+        <p id="condition"></p>
+
+        <section id="weather-details">
+          <article class="detail">
+            <small>Feels Like</small>
+            <strong id="feels-like"></strong>
+          </article>
+          <article class="detail">
+            <small>Humidity</small>
+            <strong id="humidity"></strong>
+          </article>
+          <article class="detail">
+            <small>Wind</small>
+            <strong id="wind"></strong>
+          </article>
+          <article class="detail">
+            <small>Rain</small>
+            <strong id="precipitation"></strong>
+          </article>
+        </section>
+      </article>
+
+      <section id="forecast-section">
+        <h3>7 Day Forecast</h3>
+        <section id="forecast"></section>
+      </section>
+
+    </section>
+
+  </main>
+
+  <footer>
+    <p>Built with HTML, CSS, JavaScript and Python | Data from Open-Meteo</p>
+  </footer>
+
+  <script src="/static/script.js"></script>
+
+</body>
+</html>
