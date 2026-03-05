@@ -229,7 +229,7 @@ def search():
     url = "https://geocoding-api.open-meteo.com/v1/search?name=" + encoded + "&count=10&language=en&format=json"
 
     try:
-        import requests
+        import requests # type: ignore
         response = requests.get(url, timeout=5)
         data = response.json()
 

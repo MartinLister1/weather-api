@@ -1,33 +1,32 @@
-# Weather & Location API
-Built by Martin Lister | Python & Flask
+# Weather App
 
-A REST API that fetches real-time weather data for any city in the world.
+A weather app with a front end and a REST API behind it. Search any 
+city to get the current weather and a 7 day forecast. Built with 
+Python and Flask, pulling live data from the Open-Meteo API.
 
-## How to run
-1. Install Flask: pip install flask
-2. Run: python app.py
-3. Visit: http://localhost:5000
-
-## Endpoints
-
-### Current Weather
-http://localhost:5000/api/weather?city=London
-http://localhost:5000/api/weather?city=Stockport
-
-### 7 Day Forecast
-http://localhost:5000/api/forecast?city=Manchester
-http://localhost:5000/api/forecast?city=London
-
-### Compare Cities
-http://localhost:5000/api/compare?cities=London,Paris,Manchester
-http://localhost:5000/api/compare?cities=New York,Tokyo,Sydney
-
-### Search for a City
-http://localhost:5000/api/search?city=Man
-http://localhost:5000/api/search?city=Sto
-
-## Technologies Used
+## Built with
 - Python
 - Flask
-- Open-Meteo API (free real-time weather data)
-- Git & GitHub
+- HTML, CSS, JavaScript
+- Open-Meteo API (free, no key required)
+
+## Live demo
+https://weather-api-2lt1.onrender.com
+
+Note: hosted on Render's free tier so may take ~50 seconds to wake 
+up if it hasn't been used recently.
+
+## API endpoints
+- /api/weather?city=London
+- /api/forecast?city=London
+- /api/search?city=Man
+- /api/compare?cities=London,Paris,Manchester
+
+## Run locally
+1. Clone the repo
+2. Install dependencies: pip install flask
+3. Run: python app.py
+4. Open http://localhost:5000
+
+## Author
+Martin Lister
