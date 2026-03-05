@@ -1,20 +1,20 @@
 body {
-  background-color: #e8f4fd;
+  background-color: #f0f4f8;
   font-family: Arial, sans-serif;
-  color: #333333;
+  color: #2d2d2d;
   text-align: center;
   padding: 20px;
   margin: 0;
 }
 
 header h1 {
-  color: #1a6eb5;
-  font-size: 36px;
+  color: #2d6a4f;
+  font-size: 34px;
   margin-bottom: 5px;
 }
 
 header p {
-  color: #777777;
+  color: #888888;
   margin-top: 0;
 }
 
@@ -29,31 +29,31 @@ header p {
 #city-input {
   padding: 12px 15px;
   font-size: 15px;
-  border-radius: 8px;
-  border: 2px solid #aaccee;
+  border-radius: 6px;
+  border: 2px solid #b7cfc4;
   background-color: white;
-  color: #333333;
+  color: #2d2d2d;
   width: 250px;
 }
 
 #city-input:focus {
   outline: none;
-  border-color: #1a6eb5;
+  border-color: #2d6a4f;
 }
 
 #search button {
   padding: 12px 25px;
   font-size: 15px;
   font-weight: bold;
-  background-color: #1a6eb5;
+  background-color: #2d6a4f;
   color: white;
   border: none;
-  border-radius: 8px;
+  border-radius: 6px;
   cursor: pointer;
 }
 
 #search button:hover {
-  background-color: #155a9a;
+  background-color: #245c43;
 }
 
 .hidden {
@@ -68,22 +68,22 @@ header p {
 /* main weather card */
 #weather-card {
   background-color: white;
-  border: 2px solid #aaccee;
-  border-radius: 15px;
+  border: 1px solid #c8d8cc;
+  border-radius: 10px;
   padding: 30px;
   max-width: 500px;
   margin: 0 auto 20px auto;
-  box-shadow: 0 4px 12px rgba(26, 110, 181, 0.1);
+  box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.08);
 }
 
 #city-name {
   font-size: 30px;
-  color: #1a6eb5;
+  color: #2d6a4f;
   margin-bottom: 5px;
 }
 
 #country-name {
-  color: #777777;
+  color: #888888;
   margin-top: 0;
   margin-bottom: 15px;
 }
@@ -91,7 +91,7 @@ header p {
 #temperature {
   font-size: 64px;
   display: block;
-  color: #1a6eb5;
+  color: #2d2d2d;
   margin-bottom: 10px;
 }
 
@@ -110,22 +110,22 @@ header p {
 }
 
 .detail {
-  background-color: #e8f4fd;
-  border-radius: 10px;
+  background-color: #f0f4f0;
+  border-radius: 6px;
   padding: 12px;
-  border: 1px solid #aaccee;
+  border: 1px solid #c8d8cc;
 }
 
 .detail small {
   display: block;
-  color: #777777;
+  color: #888888;
   font-size: 12px;
   margin-bottom: 5px;
 }
 
 .detail strong {
   font-size: 20px;
-  color: #1a6eb5;
+  color: #2d6a4f;
 }
 
 /* forecast */
@@ -135,7 +135,7 @@ header p {
 }
 
 #forecast-section h3 {
-  color: #1a6eb5;
+  color: #2d6a4f;
   margin-bottom: 15px;
 }
 
@@ -147,15 +147,15 @@ header p {
 
 .forecast-day {
   background-color: white;
-  border: 1px solid #aaccee;
-  border-radius: 10px;
+  border: 1px solid #c8d8cc;
+  border-radius: 6px;
   padding: 10px 5px;
-  box-shadow: 0 2px 6px rgba(26, 110, 181, 0.08);
+  box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.06);
 }
 
 .forecast-day small {
   display: block;
-  color: #777777;
+  color: #888888;
   font-size: 11px;
   margin-bottom: 5px;
 }
@@ -164,7 +164,7 @@ header p {
   display: block;
   font-weight: bold;
   font-size: 14px;
-  color: #1a6eb5;
+  color: #2d6a4f;
 }
 
 .forecast-day .min {
