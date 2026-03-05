@@ -14,6 +14,7 @@ def home():
 
 
 # this gets the lat and long for a city so we can pass it to the weather API
+# had to encode the city name otherwise cities with spaces broke it
 def get_coordinates(city):
     encoded_city = urllib.parse.quote(city)
     url = "https://geocoding-api.open-meteo.com/v1/search?name=" + encoded_city + "&count=1&language=en&format=json"
@@ -37,8 +38,8 @@ def get_coordinates(city):
     except:
         return None
 
-
 # calls the open-meteo API and gets the weather data back
+# using open-meteo because its free and doesn't need an api key
 def get_weather(lat, lon, timezone="UTC"):
     url = "https://api.open-meteo.com/v1/forecast?latitude=" + str(lat) + "&longitude=" + str(lon)
     url += "&current=temperature_2m,relative_humidity_2m,apparent_temperature,precipitation,wind_speed_10m,wind_direction_10m,weather_code"
@@ -257,5 +258,6 @@ def search():
         return jsonify({"error": "Search failed. Please try again."}), 500
 
 
+print("Server starting...")
 port = int(os.environ.get('PORT', 5000))
 app.run(host='0.0.0.0', port=port)
